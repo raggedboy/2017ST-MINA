@@ -1,0 +1,69 @@
+<!--page_login.wxml-->
+<view class = "loginTitle">
+2017ST
+</view>
+
+<view>
+
+  <image src="../../../sources/images/login-icon-head.png" 
+  mode="aspectFit" 
+  class="loginIcon">
+  </image>
+
+  <input id="mobileID"
+  value="{{mobile}}" 
+  bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
+  class="loginText" 
+  placeholder="请输入用户名" placeholder-class='loginPlaceHolder'>
+  </input>
+
+  <icon id="mobileID"
+  type="clear" 
+  class="loginBtn" 
+  bindtap="bindClearIcon"
+  hidden = "{{clearMobileIconHidden}}"></icon>
+
+  <view class = "underLine"></view>
+  
+</view>
+
+<view>
+  <image 
+  src="../../../sources/images/login-icon-lock.png" 
+  mode="aspectFit" 
+  class="loginIcon">
+  </image>
+
+  <input id="pwdID"
+  value="{{password}}" password="{{pwdShow}}"
+  bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
+  class="loginText" 
+  placeholder-class='loginPlaceHolder' placeholder="请输入密码"
+  >
+  </input>
+
+  <icon  id="pwdID"
+  type="clear" 
+  class="loginBtn" 
+  bindtap="bindClearIcon" 
+  hidden = "{{clearPWDIconHidden}}"></icon>
+
+  <view class = "underLine"></view>
+
+  <image src="../../../sources/images/login-icon-eye.png" 
+  mode="aspectFit" 
+  class="loginIcon"  
+  bindtap="bindShowPWDIcon">
+  </image>
+
+</view>
+
+<button class="loginBtn" bindtap="bindLoginBtn"> 登录 </button>
+
+<modal title="提示" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange">
+  <view class="modalType"> {{modalMsg}} </view>
+</modal>
+
+<!--<toast hidden="{{toast}}" duration="3000" bindchange="toastHide">
+        这是toast
+</toast>-->

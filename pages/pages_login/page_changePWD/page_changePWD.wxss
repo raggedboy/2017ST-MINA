@@ -1,0 +1,38 @@
+.loginTitle{
+  height: 200rpx;
+}
+
+.loginBtn{
+  height: 100rpx;
+  background-color: #fff;
+  width: 80%;
+  border-radius: 20rpx;
+}
+
+.loginText{
+  background:#eee; 
+  width:60%;
+}
+
+.underLine{
+  height: 2rpx;
+  background-color: #aaa;
+  width: 80%;
+}
+
+.loginIcon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.loginPlaceHolder{
+  color: #ddd;
+  font-size: 25rpx;
+}
+
+.modalType
+{
+  padding: 15rpx 30rpx;
+  display: block;
+  text-align: center;
+}

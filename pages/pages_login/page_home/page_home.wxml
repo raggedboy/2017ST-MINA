@@ -1,0 +1,8 @@
+<!--page_home.wxml-->
+<view>
+  <image id='expenseID'
+  bindtap="bindExpenseImg"
+  src = '../../../sources/images/icon-enter-expense.png'></image>
+</view>
+
+<button class="bottomBtn" bindtap="bindChangePWDBtn"> 更改密码 </button>

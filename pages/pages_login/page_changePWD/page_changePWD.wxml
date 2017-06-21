@@ -1,0 +1,39 @@
+<!--page_changePWD.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view wx:for="{{arayInputGroup}}">
+
+<!--标题-->
+  <text>{{item.title}}</text>
+
+<!--输入框-->
+  <input id="{{item.id}}" name="{{item.name}}"
+  password="{{!item.pwdShow}}" value="{{item.value}}"
+  bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
+  class="loginText" 
+  placeholder-class='loginPlaceHolder' placeholder="请输入密码"></input>
+
+   <view class='underLine'> </view>
+
+
+<!--clear btn-->
+  <icon  id="{{item.id}}"
+  type="clear" 
+  class="loginBtn" 
+  bindtap="bindClearIcon" 
+  hidden = "{{item.clearBtnHide}}"></icon>
+
+  <view class='underLine'> </view>
+
+<!--eye btn-->
+  <image id="{{item.id}}"
+  src="../../../sources/images/login-icon-eye.png" 
+  mode="aspectFit" 
+  class="loginIcon"  
+  bindtap="bindShowPWDIcon">
+  </image>
+
+</view>
+
+  <button class="loginBtn" form-type="submit"> 登录 </button>
+
+</form>
