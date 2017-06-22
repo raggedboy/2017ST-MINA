@@ -1,38 +1,42 @@
 <!--page_login.wxml-->
-<view class = "loginTitle">
-2017ST
+<view class = "loginTitleView">
+<text class = "loginTitle">ST系统</text>
 </view>
 
-<view>
+<view class = "textGroup">
 
   <image src="../../../sources/images/login-icon-head.png" 
   mode="aspectFit" 
-  class="loginIcon">
+  class="headIcon">
   </image>
 
-  <input id="mobileID"
-  value="{{mobile}}" 
-  bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
-  class="loginText" 
-  placeholder="请输入用户名" placeholder-class='loginPlaceHolder'>
-  </input>
+  <view class = "underlineGroup">
 
-  <icon id="mobileID"
-  type="clear" 
-  class="loginBtn" 
-  bindtap="bindClearIcon"
-  hidden = "{{clearMobileIconHidden}}"></icon>
+    <input id="mobileID"
+    value="{{mobile}}" 
+    bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
+    class="loginText" 
+    placeholder="请输入用户名" placeholder-class='loginPlaceHolder'> 
+    </input>
 
-  <view class = "underLine"></view>
+    <icon id="mobileID"
+    type="clear" 
+    class="loginIcon" 
+    bindtap="bindClearIcon"
+    hidden = "{{clearMobileIconHidden}}"></icon>
+  
+  </view>
   
 </view>
 
-<view>
+<view class = "textGroup">
   <image 
   src="../../../sources/images/login-icon-lock.png" 
   mode="aspectFit" 
-  class="loginIcon">
+  class="headIcon">
   </image>
+
+  <view class = "underlineGroup">
 
   <input id="pwdID"
   value="{{password}}" password="{{pwdShow}}"
@@ -44,17 +48,17 @@
 
   <icon  id="pwdID"
   type="clear" 
-  class="loginBtn" 
+  class="loginIcon" 
   bindtap="bindClearIcon" 
   hidden = "{{clearPWDIconHidden}}"></icon>
-
-  <view class = "underLine"></view>
 
   <image src="../../../sources/images/login-icon-eye.png" 
   mode="aspectFit" 
   class="loginIcon"  
   bindtap="bindShowPWDIcon">
   </image>
+
+  </view>
 
 </view>
 

@@ -1,33 +1,56 @@
 /* page_login.wxss */
-.loginTitle{
+.loginTitleView{
   height: 200rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.loginTitle{
+  text-align: center;
+  color:red;
+  font-size: 150rpx;
+}
+
+.textGroup{
+    align-items:center;
+    margin:0rpx 100rpx 0rpx;
+    display: flex;
+    height: 100rpx;
+}
+
+.underlineGroup{
+    display: flex;
+    flex: auto;
+    border-bottom:#aaa solid 1rpx;
 }
 
 .loginBtn{
   height: 100rpx;
-  background-color: #fff;
-  width: 80%;
+  width: 200rpx;
+  background-color: #aaa;
+  margin-top:100rpx;
   border-radius: 20rpx;
 }
 
 .loginText{
-  background:#eee; 
-  width:60%;
-}
-
-.underLine{
-  height: 2rpx;
-  background-color: #aaa;
-  width: 80%;
+  flex: auto;
+  background-color:rgba(0,0,0,0);
+  margin-right: 50rpx;
 }
 
 .loginIcon {
-  width: 40rpx;
-  height: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.headIcon{
+  width: 60rpx;
+  height: 60rpx;
+  /*flex-basis: 100rpx;*/
 }
 
 .loginPlaceHolder{
-  color: #ddd;
+  color: #aaa;
   font-size: 25rpx;
 }
 

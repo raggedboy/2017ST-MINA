@@ -2,6 +2,7 @@
   "pages": [
     "pages/pages_login/page_home/page_home",
     "pages/pages_login/page_login/page_login",
+    
     "pages/pages_login/page_changePWD/page_changePWD",
     
 

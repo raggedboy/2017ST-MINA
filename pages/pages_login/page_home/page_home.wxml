@@ -1,8 +1,20 @@
 <!--page_home.wxml-->
-<view>
-  <image id='expenseID'
-  bindtap="bindExpenseImg"
-  src = '../../../sources/images/icon-enter-expense.png'></image>
+<view class="expenseView" bindtap="bindExpenseImg">
+
+  <image class="carrotImg" src = '../../../sources/images/home-icon-carrot.png'></image>
+
+  <text class="carrotTxt">报销系统</text>
+
 </view>
 
-<button class="bottomBtn" bindtap="bindChangePWDBtn"> 更改密码 </button>
+<view class="changePwdView" bindtap="bindChangePWDBtn">
+
+  <image class="carrotImg" src = '../../../sources/images/home-icon-changePwd.png'></image>
+
+  <text class="lockTxt">更改密码</text>
+
+</view>
+
+
+<!--<button class="bottomBtn" bindtap="bindChangePWDBtn" style="display:flex"> 更改密码
+ </button>-->

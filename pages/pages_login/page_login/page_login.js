@@ -78,7 +78,8 @@ Page(
     var id = e.target.id;
     var value = e.detail.value;
 
-    this.showClearIcon(id, value == '');//clear icon show depends
+    // this.showClearIcon(id, value == '');//clear icon show depends
+    this.showClearIcon(id, false);//clear icon show depends
   },
   //2-失去焦点
   bindBlur: function (e) {
