@@ -1,19 +1,22 @@
 /* page_login.wxss */
 .loginTitleView{
-  height: 200rpx;
+  height: 370rpx;
   display: flex;
-  justify-content: center;
 }
 
 .loginTitle{
-  text-align: center;
-  color:red;
-  font-size: 150rpx;
+  vertical-align: middle;
+  color:#bb4a3a;
+  margin:auto;
+  font-size: 80rpx;
+  text-indent: 50rpx;
+  letter-spacing: 50rpx;
+  font-weight: bold;
 }
 
 .textGroup{
-    align-items:center;
-    margin:0rpx 100rpx 0rpx;
+    align-items:flex-end;
+    margin:0rpx 65rpx 80rpx;
     display: flex;
     height: 100rpx;
 }
@@ -21,21 +24,28 @@
 .underlineGroup{
     display: flex;
     flex: auto;
-    border-bottom:#aaa solid 1rpx;
+    border-bottom:#aaa solid 2rpx;
+    margin-left: 43rpx;
 }
 
 .loginBtn{
-  height: 100rpx;
-  width: 200rpx;
-  background-color: #aaa;
+  height: 80rpx;
+  width: 320rpx;
+  font-size: 50rpx;
+  /*background-color: #aaa;*/
+  background-color: rgba(0, 0, 0, 0);
   margin-top:100rpx;
-  border-radius: 20rpx;
+  line-height: 80rpx;
+  border:#bb4a3a solid 2rpx;
+  border-radius: 5rpx;
+  color:#bb4a3a;
 }
 
 .loginText{
   flex: auto;
-  background-color:rgba(0,0,0,0);
   margin-right: 50rpx;
+  color: #bb4a3a;
+  font-size: 40rpx;
 }
 
 .loginIcon {
@@ -43,15 +53,26 @@
   height: 50rpx;
 }
 
+.eyeIcon{
+  width: 55rpx;
+  height: 40rpx;
+  margin: 5rpx 5rpx;
+}
+
+.clearIcon{
+  width: 38rpx;
+  height: 38rpx;
+  margin: 6rpx 15rpx;
+}
+
 .headIcon{
   width: 60rpx;
-  height: 60rpx;
-  /*flex-basis: 100rpx;*/
+  height: 65rpx;
 }
 
 .loginPlaceHolder{
-  color: #aaa;
-  font-size: 25rpx;
+  color: #898989;
+  font-size: 40rpx;
 }
 
 .modalType

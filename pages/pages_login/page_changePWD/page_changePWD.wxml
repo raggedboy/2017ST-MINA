@@ -1,39 +1,47 @@
 <!--page_changePWD.wxml-->
 <form bindsubmit="formSubmit" bindreset="formReset">
-<view wx:for="{{arayInputGroup}}">
+<view class="textGroup" wx:for="{{arayInputGroup}}">
 
 <!--标题-->
-  <text>{{item.title}}</text>
+  <text class="titleText">{{item.title}}</text>
 
 <!--输入框-->
   <input id="{{item.id}}" name="{{item.name}}"
   password="{{!item.pwdShow}}" value="{{item.value}}"
   bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
-  class="loginText" 
-  placeholder-class='loginPlaceHolder' placeholder="请输入密码"></input>
-
-   <view class='underLine'> </view>
-
+  class="inputText" 
+  placeholder-class='inputPlaceHolder' placeholder="请输入密码">
+  </input>
 
 <!--clear btn-->
-  <icon  id="{{item.id}}"
-  type="clear" 
-  class="loginBtn" 
-  bindtap="bindClearIcon" 
-  hidden = "{{item.clearBtnHide}}"></icon>
-
-  <view class='underLine'> </view>
+  <image id="{{item.id}}"
+  src="../../../sources/images/icon-clear.png" 
+  mode="aspectFit" 
+  class="clearIcon"  
+  bindtap="bindClearIcon"
+  hidden="{{item.clearBtnHide}}">
+  </image>
 
 <!--eye btn-->
   <image id="{{item.id}}"
-  src="../../../sources/images/login-icon-eye.png" 
+  src="../../../sources/images/icon-eye.png" 
   mode="aspectFit" 
-  class="loginIcon"  
+  class="eyeIcon"  
   bindtap="bindShowPWDIcon">
   </image>
 
 </view>
+  
+<!--tip text-->
+<text class="tipText">密码由 6-20 位英文字母和数字组成
+</text>
 
-  <button class="loginBtn" form-type="submit"> 登录 </button>
+  <button class="confirmBtn" form-type="submit">
+    确定
+    </button>
 
 </form>
+
+<modal title="提示" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange">
+  <view class="modalType"> {{modalMsg}} </view>
+</modal>

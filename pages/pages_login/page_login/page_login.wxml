@@ -5,7 +5,7 @@
 
 <view class = "textGroup">
 
-  <image src="../../../sources/images/login-icon-head.png" 
+  <image src="../../../sources/images/icon-head.png" 
   mode="aspectFit" 
   class="headIcon">
   </image>
@@ -19,11 +19,13 @@
     placeholder="请输入用户名" placeholder-class='loginPlaceHolder'> 
     </input>
 
-    <icon id="mobileID"
-    type="clear" 
-    class="loginIcon" 
+    <image id="mobileID"
+    src="../../../sources/images/login-icon-clear.png" 
+    mode="aspectFit" 
+    class="clearIcon" 
     bindtap="bindClearIcon"
-    hidden = "{{clearMobileIconHidden}}"></icon>
+    hidden = "{{clearMobileIconHidden}}">
+    </image>
   
   </view>
   
@@ -31,7 +33,7 @@
 
 <view class = "textGroup">
   <image 
-  src="../../../sources/images/login-icon-lock.png" 
+  src="../../../sources/images/icon-lock.png" 
   mode="aspectFit" 
   class="headIcon">
   </image>
@@ -46,15 +48,17 @@
   >
   </input>
 
-  <icon  id="pwdID"
-  type="clear" 
-  class="loginIcon" 
-  bindtap="bindClearIcon" 
-  hidden = "{{clearPWDIconHidden}}"></icon>
+  <image id="pwdID"
+  src="../../../sources/images/login-icon-clear.png" 
+  mode="aspectFit" 
+  class="clearIcon" 
+  bindtap="bindClearIcon"
+  hidden = "{{clearPWDIconHidden}}">
+  </image>
 
   <image src="../../../sources/images/login-icon-eye.png" 
   mode="aspectFit" 
-  class="loginIcon"  
+  class="eyeIcon"  
   bindtap="bindShowPWDIcon">
   </image>
 
@@ -62,7 +66,7 @@
 
 </view>
 
-<button class="loginBtn" bindtap="bindLoginBtn"> 登录 </button>
+<button class="loginBtn" bindtap="bindLoginBtn"> 登 录 </button>
 
 <modal title="提示" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange">
   <view class="modalType"> {{modalMsg}} </view>

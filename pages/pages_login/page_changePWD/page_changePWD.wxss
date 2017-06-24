@@ -1,34 +1,64 @@
-.loginTitle{
-  height: 200rpx;
+
+.titleText{
+  margin:0 20rpx 0;
+  flex-basis: 160rpx;
+  color:#bb4a3a;
+  font-size: 32rpx;
+}
+.inputText{
+  flex: auto;
+  color:#bb4a3a;
+  font-size: 32rpx;
+}
+.inputPlaceHolder{
+  color: #898989;
+  font-size: 24rpx;
 }
 
-.loginBtn{
-  height: 100rpx;
-  background-color: #fff;
-  width: 80%;
-  border-radius: 20rpx;
+.textGroup{
+  display: flex;
+  height: 75rpx;
+  margin:13rpx 44rpx 0rpx;
+  border-bottom:#bb4a3a solid 1rpx;
+  align-items: center;
 }
 
-.loginText{
-  background:#eee; 
-  width:60%;
+.clearIcon {
+  margin-left:20rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.eyeIcon {
+  width: 32rpx;
+  height: 24rpx;
+  margin:0 19rpx 0;
 }
 
-.underLine{
-  height: 2rpx;
-  background-color: #aaa;
-  width: 80%;
+.tipText{
+  color: #6c6c6c;
+  margin:0rpx 60rpx 0rpx;
+  font-size: 24rpx;
+  height: 70rpx;
 }
 
-.loginIcon {
-  width: 40rpx;
-  height: 40rpx;
+.confirmBtn{
+  height: 70rpx;
+  margin:55rpx auto 0;
+  background-color: #bb4a3a;
+  width: 524rpx;
+  font-size: 32rpx;
+  line-height: 70rpx;
+  color: white;
+  border-radius: 5rpx;
+  text-indent: 80rpx;
+  letter-spacing: 80rpx;
 }
 
-.loginPlaceHolder{
-  color: #ddd;
-  font-size: 25rpx;
-}
+/*.btnText{
+  vertical-align: middle;
+  letter-spacing: 100rpx;
+  padding-left: 100rpx
+}*/
 
 .modalType
 {

@@ -100,7 +100,7 @@ Page(
       this.setData({ password: value });
     }
 
-    this.showClearIcon(id, value == '');//clear icon show depends
+    // this.showClearIcon(id, value == '');//clear icon show depends
   },
 
   //清理输入框

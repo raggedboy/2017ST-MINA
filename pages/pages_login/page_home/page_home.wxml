@@ -3,13 +3,13 @@
 
   <image class="carrotImg" src = '../../../sources/images/home-icon-carrot.png'></image>
 
-  <text class="carrotTxt">报销系统</text>
+  <text class="carrotTxt">报销</text>
 
 </view>
 
 <view class="changePwdView" bindtap="bindChangePWDBtn">
 
-  <image class="carrotImg" src = '../../../sources/images/home-icon-changePwd.png'></image>
+  <image class="carrotImg" src = '../../../sources/images/home-icon-lock.png'></image>
 
   <text class="lockTxt">更改密码</text>
 
