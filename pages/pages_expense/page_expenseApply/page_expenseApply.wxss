@@ -1,0 +1,90 @@
+/* page_expenseApply.wxss */
+.picker_container{
+  height:87rpx;
+  display:flex;
+  /*justify-content: space-between;*/
+  border-bottom:2rpx solid #a1a1a1;
+  margin:0rpx 20rpx;
+}
+
+.picker_title{
+  font-size: 40rpx;
+  align-self:center;
+  margin-left: 15rpx;
+}
+
+.picker{
+  font-size: 40rpx;
+  align-self:center;
+  flex: auto;
+  text-align: right;
+  margin-right: 15rpx;
+}
+
+/*==============================================================*/
+
+.text_red_color{
+  color:#bb4a3a;
+}
+
+.text_gray_color{
+  color:#595959;
+}
+
+/*==============================================================*/
+
+.input_list_title{
+  font-size: 40rpx;
+  align-self:center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.input_group{
+  height:87rpx;
+  display:flex;
+  /*justify-content: space-between;*/
+  border-bottom:2rpx solid #a1a1a1;
+  margin:0rpx 20rpx;
+}
+
+.input_title{
+  font-size: 35rpx;
+  align-self:center;
+  margin-left: 35rpx;
+}
+
+.input_data{
+  font-size: 35rpx;
+  align-self:center;
+  text-align: right;
+  flex: auto;
+}
+
+.input_unit{
+  text-align: right;
+  align-self:center;
+  font-size: 35rpx;
+  margin-right: 35rpx;
+  color:#8e8e8e;
+}
+
+.input_area{
+  margin:23rpx 35rpx;
+  font-size: 35rpx;
+}
+
+.input_area_group{
+  border-bottom:2rpx solid #a1a1a1;
+  margin:0rpx 20rpx;
+}
+
+/*==============================================================*/
+
+.submit_btn{
+    margin:40rpx 30rpx;
+    color: white;
+    background: #bb4a3a;
+    height: 80rpx;
+    line-height: 80rpx;
+}

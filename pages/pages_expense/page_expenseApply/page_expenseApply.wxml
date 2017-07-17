@@ -1,0 +1,51 @@
+<!--page_expenseApply.wxml-->
+
+<form bindsubmit="formSubmit">
+
+<!--报销类型-->
+<view class="picker_container">
+  <text class="picker_title text_red_color"> 报销类型 </text>
+  <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{typeArray}}" name="type" class="picker text_red_color">{{typeArray[typeIndex]}} ></picker>
+</view>
+  
+<!--报销日期-->
+<view class="picker_container">
+  <text class="picker_title"> 报销日期 </text>
+  <picker mode="date" value="{{date}}" start='{{startDate}}' end='{{endDate}}' bindchange="bindDateChange" name="date" class="picker">{{date}} ></picker>
+</view>
+
+<!--总标题--> 
+<view class="input_group">
+    <text class="input_list_title text_red_color">{{typeArray[typeIndex]}}</text>
+</view>
+
+<!--常规花销输入-->  
+<view wx:for="{{input_list}}" class="input_group">
+    <text class="input_title">{{item.title}}</text>
+    <input id="{{index}}" class="input_data" name="{{item.name}}" bindinput="bindInputChange" value="{{item.value}}" type='digit'
+    placeholder-class="input_placeholder" placeholder="0.0" 
+    ></input>
+    <text class="input_unit">￥</text>
+</view>
+
+<!--总计金额--> 
+<view class="input_group">
+    <text class="input_title text_gray_color">{{typeArray[typeIndex]}}总计金额
+    </text>
+    <text class="input_data text_gray_color" style="margin-right:35rpx">{{totalCost}}￥</text>
+</view>
+
+<!--备注--> 
+  <view class="input_group">
+      <text class="input_title">备注</text>
+  </view>
+  <view class="input_area_group">
+    <textarea name="remark" placeholder="不超过20个字符" maxlength='20'
+     auto-height='true' class="input_area"></textarea>
+  </view>
+    
+
+<!--提交按钮-->  
+  <button formType="submit" class="submit_btn">提交</button>
+
+</form>

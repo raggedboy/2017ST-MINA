@@ -1,2 +1,60 @@
-<!--page_expenseList.wxml-->
-<text>page_expenseList.wxml</text>
+<!--切换按钮-->
+<view class="tab_container" wx:if="{{userLevel==1}}">
+  <block wx:for="{{tab_btn_list}}">
+    <button id='{{index}}' style="{{curTab == index?'border-color:#bb4a3a; color: white; background:#bb4a3a':'border-color:#707070; color:#707070'}}" bindtap="bindTab" class="tab_btn" plain="true">{{tab_btn_list[index]}}</button>
+  </block>
+</view>
+
+<!--报销日期-->  
+<view class="selector_container" wx:if='{{curTab == 1}}' >
+  <picker mode="date" value="{{date}}" start='{{startDate}}' end='{{endDate}}' bindchange="bindDateChange" name="date" class="selector_date">
+    报销日期: {{date}} >
+  </picker>
+  </view>
+
+<!--报销列表-->
+<view class="list_container" wx:if="{{list && list.length > 0}}">
+    <block wx:for="{{list}}">
+
+        <!--页面跳转-->
+        <navigator url="../page_expenseDetail/page_expenseDetail?costId={{item.costId}}&checkType={{curTab}}&costType={{item.costType}}">
+
+        <!--报销记录-->
+        <view class="expense_item">
+              <view class="left_cont">
+
+                    <text class="title_text">{{item.memberName}}的报销申请</text>
+
+                    <text class="data_text">报销日期:{{item.costTime}}</text>
+
+                    <text wx:if='{{item.costType == 0}}' class="data_text">日常费用:￥{{item.dailyCost}}</text>
+
+                    <text wx:else class="data_text">车票费用:￥{{item.trainCost}}</text>         
+          </view>
+
+          <!--审核状态-->
+          <image src="{{'../../../sources/images/checkStatus'+item.checkSatus+'.png'}}" class="pic">
+          </image>    
+        </view>
+
+        </navigator>
+    </block>
+</view>
+
+<!--无数据占位图-->
+<view class="bitmap_container" wx:else>
+  <image class="bitmap_img" src="../../../sources/images/img-bitmap-emtpy.png"></image>
+  <text class="bitmap_text">暂无记录</text>
+</view>
+
+<!--提交按钮-->
+<view class="submit_btn_container">
+  <button class="submit_btn" bindtap="bindSubmitBtn" disabled="{{!submitBtnAvailable && curTab == 1}}">{{submit_title}}
+  <!--style="{{(submitBtnAvailable || curTab == 0)?'background: #bb4a3a':'background:gray'}}"-->
+  </button>
+</view>
+
+<!--问号按钮-->
+<button class="question_btn"
+wx:if="{{curTab == 1 && submitBtnAvailable}}" bindtap="bindQuestionBtn">?
+</button>

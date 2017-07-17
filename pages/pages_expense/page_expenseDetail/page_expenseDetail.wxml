@@ -1,0 +1,40 @@
+<!--page_expenseDetail.wxml-->
+<view class="section_container_0">
+  <view class="left_container">
+    <text class="text_top text_red_color">{{data.memberName}}</text>
+    <text class="text_top">{{data.costTime}}</text>
+  </view>
+
+  <!--<view class="right_container">-->
+    <image class="pic" 
+    src="{{'../../../sources/images/checkStatus'+data.checkStatus+'.png'}}"></image>    
+  <!--</view>-->
+</view>
+
+<view class="section_container_1">
+<view class="data_group">
+  <text class="text_big_font data_title">{{title['totalcost'+data.costType]}}</text>
+  <text class="text_big_font data_value">￥{{data.totalcost}}</text>
+</view>
+
+<view wx:for="{{detail_list[data.costType]}}" class="data_group">
+  <text class="text_small_font data_title">{{title[detail_list[data.costType][index]]}}</text>
+  <text class="text_small_font data_value">￥{{data[detail_list[data.costType][index]]}}</text>
+</view>
+</view>
+
+<view class="section_container_2" wx:if="{{data.remark.length > 0}}">
+  <text class="remark_title text_big_font">{{title.remark}}</text>
+  <text class="remark_value text_small_font">{{data.remark}}</text>
+</view>
+
+<block wx:if="{{checkType == 1 && data.checkStatus == 0}}">
+<view class="submit_btn_container">
+  <button class="submit_btn" bindtap="bindClickBtn" id="-1">不通过</button>
+  <button class="submit_btn" bindtap="bindClickBtn" id="0">通过</button>
+</view>
+</block>
+
+
+
+

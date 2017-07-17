@@ -14,13 +14,13 @@
   </input>
 
 <!--clear btn-->
-  <image id="{{item.id}}"
+  <!--<image id="{{item.id}}"
   src="../../../sources/images/icon-clear.png" 
   mode="aspectFit" 
   class="clearIcon"  
   bindtap="bindClearIcon"
   hidden="{{item.clearBtnHide}}">
-  </image>
+  </image>-->
 
 <!--eye btn-->
   <image id="{{item.id}}"

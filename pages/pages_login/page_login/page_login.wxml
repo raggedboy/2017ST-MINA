@@ -19,13 +19,13 @@
     placeholder="请输入用户名" placeholder-class='loginPlaceHolder'> 
     </input>
 
-    <image id="mobileID"
+    <!--<image id="mobileID"
     src="../../../sources/images/login-icon-clear.png" 
     mode="aspectFit" 
     class="clearIcon" 
     bindtap="bindClearIcon"
     hidden = "{{clearMobileIconHidden}}">
-    </image>
+    </image>-->
   
   </view>
   
@@ -48,13 +48,13 @@
   >
   </input>
 
-  <image id="pwdID"
+  <!--<image id="pwdID"
   src="../../../sources/images/login-icon-clear.png" 
   mode="aspectFit" 
   class="clearIcon" 
   bindtap="bindClearIcon"
   hidden = "{{clearPWDIconHidden}}">
-  </image>
+  </image>-->
 
   <image src="../../../sources/images/login-icon-eye.png" 
   mode="aspectFit" 
