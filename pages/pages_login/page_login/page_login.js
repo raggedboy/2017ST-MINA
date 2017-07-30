@@ -1,16 +1,5 @@
 // page_login.js
 
-//TODO list
-/*
-  1-与产品确认clearbtn规则
-  2-与产品确认placeholder显隐规则
-  3-toast控件获取
-  4-输入框限制
-  5-密码加密
-*/
-
-//获取应用实例
-var app = getApp()
 Page(
   {
   /**
@@ -38,6 +27,10 @@ Page(
 
     var mobile = this.data.mobile;
     var pwd = this.data.password;
+  
+//临时代码
+    // mobile = '15068865038',
+    // pwd = '123123'
 
     //帐号判空
     if (mobile == '') {
@@ -48,29 +41,54 @@ Page(
       this.showModal('请输入密码'); return;
     }
 
-    console.log('verify success');
+    //为适配更改密码接口----
+    getApp().globalData['mobile'] = mobile;
 
-    //模拟密码判断
-    if(this.data.password == '123')
-    {
-      //页面跳转
-      wx.navigateTo({
-        url: '../page_home/page_home',
-      })
-    }else{
-      this.showModal('帐号或密码错误'); return;
+    var requestData = {
+      mobile: mobile,
+      password: pwd
     }
+    console.log(requestData);
+
+    var that = this;
+    wx.request({
+      url: 'https://www.landofpromise.cn/lop/app/member/login',
+      data: requestData,
+      method:'POST',
+      success:function(res)
+      {
+        console.log(res.data);
+        if (res.data.code == 200){
+          that.requestSuccess(res.data.data);//登录成功
+        }else{
+          that.requestFail(res.data.msg);//登录失败
+        }
+      },
+      fail:function(res){
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//登录失败
+      }
+    })
 
     //调用登录接口失败，清空密码
+  },
+  requestSuccess: function(data)
+  {
+    //判空保护
+    if (!data.token || data.token.length == 0)return;
 
-    //调用登录接口
+    //token存储
+    getApp().globalData['token'] = data.token;
+    getApp().globalData['roltType'] = data.roltType;
     //登录成功：保存帐号密码至本地，下次打开，直接填上
-    //登录成功：获得用户信息，存入全局变量
-    //登录成功后跳转
-
-    // wx.navigateTo({
-    //   url: '../logs/logs'
-    // })
+    //TODO
+    //页面跳转
+    wx.redirectTo({
+      url: '../page_home/page_home',
+    })
+  },
+  requestFail: function (msg) {
+    this.showModal(msg);
   },
 
   //1-成为焦点
@@ -129,36 +147,13 @@ Page(
     this.setData({ pwdShow:!this.data.pwdShow})
   },
 
-  // var logs = wx.getStorageSync('logs') || [];
-  // wx.setStorageSync('logs', logs)
-
   /*
   页面加载
   */
   onLoad: function (options) 
   {
-    console.log('onLoad');
-
-    //好绕，不看,反正登录微信顺带拿到用户信息了，密钥相关等待锡哥确认
-    // var that = this
-    // //登录
-    // wx.login({
-    //   success: function () {
-    //     wx.getUserInfo({
-    //       success: function (res) {
-    //         that.setData({ userInfo: res.userInfo });
-    //         that.update();
-    //       }
-    //     })
-    //   },
-    //   fail: function (res) {
-    //     console.log(res)
-    //   }
-    // });
-
-    //若曾登录成功，保存上次登录的帐号密码，用户只需直接点登录
-  },
   //页面初次渲染完成
+  },
   onReady: function () {
   },
   //页面显示

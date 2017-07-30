@@ -4,11 +4,18 @@
     <button id='{{index}}' style="{{curTab == index?'border-color:#bb4a3a; color: white; background:#bb4a3a':'border-color:#707070; color:#707070'}}" bindtap="bindTab" class="tab_btn" plain="true">{{tab_btn_list[index]}}</button>
   </block>
 </view>
-
-<!--报销日期-->  
+<!--
+报销日期  
 <view class="selector_container" wx:if='{{curTab == 1}}' >
   <picker mode="date" value="{{date}}" start='{{startDate}}' end='{{endDate}}' bindchange="bindDateChange" name="date" class="selector_date">
     报销日期: {{date}} >
+  </picker>
+  </view>-->
+
+  <!--报销日期-->  
+<view class="selector_container" wx:if='{{curTab == 1}}' >
+  <picker mode="selector" value="{{filter}}" bindchange="bindDateChange" name="date" class="selector_date" range="{{arrayFilter}}">
+    筛选: {{filter}} >
   </picker>
   </view>
 
@@ -27,9 +34,9 @@
 
                     <text class="data_text">报销日期:{{item.costTime}}</text>
 
-                    <text wx:if='{{item.costType == 0}}' class="data_text">日常费用:￥{{item.dailyCost}}</text>
+                    <text wx:if='{{item.costType == 0}}' class="data_text">日常费用:￥{{item.toatalCost}}</text>
 
-                    <text wx:else class="data_text">车票费用:￥{{item.trainCost}}</text>         
+                    <text wx:else class="data_text">车票费用:￥{{item.toatalCost}}</text>         
           </view>
 
           <!--审核状态-->

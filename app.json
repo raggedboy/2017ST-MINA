@@ -1,11 +1,12 @@
 {
   "pages": [
+        
     "pages/pages_login/page_login/page_login",
     "pages/pages_login/page_home/page_home",
     "pages/pages_login/page_changePWD/page_changePWD",
     "pages/pages_expense/page_expenseDetail/page_expenseDetail",
-    "pages/pages_expense/page_expenseList/page_expenseList",
-    "pages/pages_expense/page_expenseApply/page_expenseApply"
+    "pages/pages_expense/page_expenseApply/page_expenseApply",
+    "pages/pages_expense/page_expenseList/page_expenseList"
   ],
   "window": {
     "backgroundTextStyle": "light",

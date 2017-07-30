@@ -5,13 +5,13 @@
 <!--报销类型-->
 <view class="picker_container">
   <text class="picker_title text_red_color"> 报销类型 </text>
-  <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{typeArray}}" name="type" class="picker text_red_color">{{typeArray[typeIndex]}} ></picker>
+  <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{typeArray}}" name="costType" class="picker text_red_color">{{typeArray[typeIndex]}} ></picker>
 </view>
   
 <!--报销日期-->
-<view class="picker_container">
+<view class="picker_container" hidden="{{typeIndex==1}}">
   <text class="picker_title"> 报销日期 </text>
-  <picker mode="date" value="{{date}}" start='{{startDate}}' end='{{endDate}}' bindchange="bindDateChange" name="date" class="picker">{{date}} ></picker>
+  <picker mode="date" value="{{date}}" start='{{startDate}}' end='{{endDate}}' bindchange="bindDateChange" name="costTime" class="picker">{{date}} ></picker>
 </view>
 
 <!--总标题--> 

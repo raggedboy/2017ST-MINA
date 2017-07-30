@@ -7,17 +7,17 @@ Page({
   data: {
     arayInputGroup:
     [
-      { id: 'oldPwdID', index:0, name:'orignpwd',
+      { id: 'oldPwdID', index:0, name:'oldPassword',
         value:'', title: '原密码', placeholder:'请输入原密码',
         pwdShow: false, clearBtnHide: true,
       },
       {
-        id: 'newPwd1ID', index: 1, name: 'newpwd',
+        id: 'newPwd1ID', index: 1, name: 'newPassword1',
         value: '', title: '新密码', placeholder: '请输入新密码', 
         pwdShow: false, clearBtnHide: true
       },
       {
-        id: 'newPwd2ID', index: 2, name: 'newpwdagain',
+        id: 'newPwd2ID', index: 2, name: 'newPassword2',
         value: '', title: '确认密码', placeholder: '请确认密码', 
         pwdShow: false, clearBtnHide: true
       }
@@ -88,19 +88,46 @@ Page({
   formSubmit: function (e) {
     var formData = e.detail.value;
 
-    var orignPwd = formData.orignpwd;//旧密码
-    var newPwd = formData.newpwd;//新密码
-    var newPwdAgain = formData.newpwdagain;//确认新密码
+    var oldPassword = formData.oldPassword;//旧密码
+    var newPassword1 = formData.newPassword1;//新密码
+    var newPassword2 = formData.newPassword2;//确认新密码
 
-    if (orignPwd == ""){ this.showModal("请输入原密码"); return; }
-    if (newPwd == "") { this.showModal("请输入新密码"); return; }
-    if (newPwdAgain == "") { this.showModal("请输入确认密码"); return; }
-    if (!RegExp(/^\w{6,20}$/).test(newPwd)) { this.showModal("新密码格式错误"); return; }
-    if (newPwdAgain != newPwd) { this.showModal("确认密码与新密码不一致"); return; }
+    if (oldPassword == ""){ this.showModal("请输入原密码"); return; }
+    if (newPassword1 == "") { this.showModal("请输入新密码"); return; }
+    if (newPassword2 == "") { this.showModal("请输入确认密码"); return; }
+    if (!RegExp(/^\w{6,20}$/).test(newPassword1)) { this.showModal("新密码格式错误"); return; }
+    if (newPassword2 != newPassword1) { this.showModal("确认密码与新密码不一致"); return; }
 
-    this.showModal("formData");
-    
+    formData["mobile"] = getApp().globalData.mobile;
     console.log(formData);
+
+    var that = this;
+    //发送请求
+    wx.request({
+      url: 'https://www.landofpromise.cn/lop/app/member/change/password',
+      data: formData,
+      method: 'POST',
+      success: function (res) {
+        console.log(res)
+        if (res.data.code == 200) {
+          that.requestSuccess();//登录成功
+        } else {
+          that.requestFail(res.data.msg);//登录失败
+        }
+      },
+      fail: function (res) {
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//登录失败
+      }
+    })
+  },
+
+  requestSuccess: function () {
+    getApp().globalData["bPwdChange"] = true;
+    wx.navigateBack({});
+  },
+  requestFail: function (msg) {
+    this.showModal(msg);
   },
 
   //1-成为焦点

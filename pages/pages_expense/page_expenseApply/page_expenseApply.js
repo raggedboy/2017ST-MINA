@@ -26,8 +26,8 @@ Page({
     typeArray:["日常费用", "车票费用"],
     typeIndex:0,
     date: new Date().Format('yyyy-MM-dd'),
-    startDate: '2017-06-01',
-    endDate: '2017-09-20',
+    startDate: '2017-09-01',
+    endDate: '2017-09-4',
     input_list:[],
     totalCost: '0.0'
   },
@@ -37,10 +37,6 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ input_list: this.generateInputList(this.data.typeIndex) });
-    // this.setData({ date: new Date().Format('yyyy-MM-dd') });
-    // console.log(date);
-    // var that = this;
-    // setTimeout("that.setData({ date: date})", 1);
   },
 
   /**
@@ -132,19 +128,12 @@ Page({
         dic_submit[name] = '0.0';
       }
     }
-    console.log('最终提交数据：', e.detail.value);
 
-    //提醒用户当天记录已提交，本地应该不做处理
-    wx.showModal({
-      title: '',
-      content: '当天日常费用已申请报销，再次提交覆盖已有报销记录',
-      showCancel:false,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        }
-      }
-    })
+    if (this.data.typeIndex == 1){
+      dic_submit['costTime']='2017-09-05';
+    }
+    console.log('最终提交数据：', dic_submit);
+    this.doCostAdd(dic_submit);
   },
 
 // ===== 计算总收益 =====
@@ -172,9 +161,57 @@ Page({
 
     if (typeIndex == 1) {
       return [
-        { 'name': 'ticket1', 'title': '家/杭州-目标城市车费', 'value': '' },
-        { 'name': 'ticket2', 'title': '目标城市-嘉年华城市车费', 'value': '' },
+        { 'name': 'costTicket', 'title': '家/杭州-目标城市车费', 'value': '' },
+        { 'name': 'costReturnticket', 'title': '目标城市-嘉年华城市车费', 'value': '' },
       ];
     }
-  }
+  },
+
+  doCostAdd:function(data)
+  {
+    var url = "https://www.landofpromise.cn/lop/app/cost/add";
+    url += "?token=" + getApp().globalData.token;
+    console.log(data);
+    var that = this;
+    wx.request({
+      url: url,
+      data: data,
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 200) {
+          that.requestSuccess(res.data.msg);//请求成功
+        } else {
+          that.requestFail(res.data.msg);//请求失败
+        }
+      },
+      fail: function (res) {
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//添加失败
+      }
+    })
+  },
+  requestSuccess: function (msg) {
+    if (!msg || msg.lenght == 0) 
+    {
+      wx.showToast({title: "添加成功",});
+      wx.navigateBack({});
+      return;
+    }
+    wx.showModal({
+      title: '',
+      content: msg,
+      showCancel: false,
+      success: function (res) {
+        wx.navigateBack({});
+      }
+    })
+  },
+  requestFail: function (msg) {
+    wx.showModal({
+      title: '',
+      content: msg,
+      showCancel:false
+    })
+  },
 })

@@ -17,106 +17,45 @@ Date.prototype.Format = function (fmt) { //author: meizz
   return fmt;
 }
 
-var id;
+// 当前时间
+var oriDate = new Date().Format('yyyy-MM-dd');
+// 实际日期
+var arrayDate = [
+  '2017-09-01',
+  '2017-09-02',
+  '2017-09-03',
+  '2017-09-04',
+  '2017-09-05'
+];
+
+// 筛选列表
+var arrayFilter = [
+  '2017-09-01',
+  '2017-09-02',
+  '2017-09-03',
+  '2017-09-04',
+  '车票费用'
+];
+// 初始筛选字段
+var oriFilter = arrayFilter[0];
+
+if (arrayDate.indexOf(oriDate) > 0){
+  oriFilter = arrayFilter[arrayDate.indexOf(oriDate)];
+}
+
 Page({
   data: {
     userLevel:1,
     submitBtnAvailable:true,
     curTab: 0,//当前选中按钮,将会以checkType:0，非审核 1, 审核 字段传入详情页
-    date: new Date().Format('yyyy-MM-dd'),
+    filter: oriFilter,
+    arrayFilter: arrayFilter,
+    // date: new Date().Format('yyyy-MM-dd'),
     tab_btn_list: ['报销列表','报销审核'],
     submit_btn_list: ['申请报销', '确认数据，提交财务'],
     submit_title: '申请报销',
-    my_record_list: [
-      // {
-      //   "costType": 0,
-      //   "costId": 1,
-      //   "costTime": "2017-06-24",
-      //   "dailyCost": 25.3,
-      //   "checkSatus": 0,
-      //   "memberName": "唐玉杰"
-      // },
-      // {
-      //   "costType": 1,
-      //   "costId": 2,
-      //   "costTime": "2017-06-25",
-      //   "trainCost": 14.3,
-      //   "checkSatus": 1,
-      //   "memberName": "唐玉杰"
-      // }
-    ],
-    group_record_list: [{
-      "costType": 1,
-      "costId": 2,
-      "costTime": "2017-06-25",
-      "trainCost": 14.3,
-      "checkSatus": 1,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 3,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 2,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 4,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 3,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 3,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 2,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 4,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 3,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 5,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 0,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 3,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 2,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 4,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 3,
-      "memberName": "唐玉杰"
-    },
-    {
-      "costType": 0,
-      "costId": 5,
-      "costTime": "2017-06-26",
-      "dailyCost": 25.4,
-      "checkSatus": 0,
-      "memberName": "唐玉杰"
-    }]
+    my_record_list: [],
+    group_record_list: []
   } ,
   bindSubmitBtn: function (e) {
     if(this.data.curTab == 0){
@@ -127,21 +66,23 @@ Page({
       return;
     }
 
+    var that = this;
     wx.showModal({
       title: '',
-      content: '确定向财务提交当前X人的X条有效申请?',
+      content: '确定向财务提交当前 ' + this.data.group_record_list.length + ' 条有效申请?',
       success: function(e){
-        console.log(e);
+
+        that.doCostListSubmit();
       }
     })
-
   },
   bindDateChange: function (e) {
+    var index = e.detail.value;
     this.setData({
-      date: e.detail.value
+      filter: arrayFilter[index]
     })
 
-    //重新请求group_record数据
+    this.requestList();
   },
   bindQuestionBtn: function (e) {
     wx.showModal({
@@ -151,6 +92,7 @@ Page({
       confirmText:'关闭'
     })
   },
+
   bindTab: function (e) {
     console.log(e);
     var curTab = e.target.id;
@@ -162,35 +104,115 @@ Page({
       submit_title: submitTit
     });
 
-    if(curTab == 0){
+    this.requestList();
+  },
+
+  refreshList: function(){
+    if (this.data.curTab == 0) {
       this.setData({
         "list": this.data.my_record_list
       });
-    }else{
+    } else {
       this.setData({
         "list": this.data.group_record_list
       });
     }
   },
   onLoad: function (options) {
-
+    var roltType = getApp().globalData.roltType;
     this.setData({
-      "list": this.data.my_record_list
+      "roltType": roltType
     });
-    // var that = this
+  },
+  onShow: function (){
+    this.requestList();
+  },
 
-    // wx.request({
-    //   url: 'http://www.huanqiuxiaozhen.com/wemall/goods/inqGoodsByTypeBrand?brand=' + 1 + "&typeid=" + 1,
-    //   method: 'GET',
-    //   data: {},
-    //   header: {
-    //     'Accept': 'application/json'
-    //   },
-    //   success: function (res) {
-    //     that.setData({
-    //       list: res.data.data
-    //     });
-    //   }
-    // })
+  //============== 列表请求 ============
+  requestList:function() {
+    var index = arrayFilter.indexOf(this.data.filter);
+    var date = arrayDate[index];
+    var curTab = this.data.curTab;
+    var token = getApp().globalData.token;
+    var that = this;
+
+    var data = { token: token };
+    var url = 'https://www.landofpromise.cn/lop/app/cost/list';
+    
+    if (curTab == 1){
+      data["thisDate"]=date;
+      url = 'https://www.landofpromise.cn/lop/app/cost/someday/list';
+    }
+    console.log(data);
+    wx.request({
+      url: url,
+      data: data,
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 200) {
+          that.requestSuccess(res.data.data, curTab);//登录成功
+        } else {
+          that.requestFail(res.data.msg);//登录失败
+        }
+      },
+      fail: function (res) {
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//登录失败
+      }
+    });
+  },
+
+  //===============当天审核通过请求=================
+  doCostListSubmit: function(){
+    var index = arrayFilter.indexOf(this.data.filter);
+    var date = arrayDate[index];
+    var token = getApp().globalData.token;
+    var that = this;
+
+    var data = {
+      thisDate: date,
+      token: token
+      };
+
+    console.log(data);
+    wx.request({
+      url: 'https://www.landofpromise.cn/lop/app/cost/sup/submit',
+      data: data,
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 200) {
+          that.requestList();//登录成功
+        } else {
+          that.requestFail(res.data.msg);//登录失败
+        }
+      },
+      fail: function (res) {
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//登录失败
+      }
+    });
+  },
+
+//=========== 请求结果处理 ============
+
+  requestSuccess: function (data, curTab) {
+    if (curTab == 0){
+      this.setData({ my_record_list: data });
+    }else{
+      this.setData({ group_record_list: data });
+    }
+    this.refreshList();
+  },
+  requestFail: function (msg) {
+    wx.showModal({
+      title: '',
+      content: msg,
+      showCancel:false,
+      success: function (e) {
+        //
+      }
+    })
   },
 })

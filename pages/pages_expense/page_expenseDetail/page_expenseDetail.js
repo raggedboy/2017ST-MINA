@@ -18,8 +18,8 @@ Page({
        "costUrbantraffic": "室内交通",
        "costOthers": "其它",
 
-       "costTicket1": "家/杭州-目标城市车费",
-       "costTicket2": "目标城市-嘉年华城市车费",
+       "costTicket": "家/杭州-目标城市车费",
+       "costReturnticket": "目标城市-嘉年华城市车费",
 
        "remark": "备注"
      },
@@ -35,8 +35,8 @@ Page({
          "costOthers"
       ],
       [
-        "costTicket1",
-        "costTicket2"
+        "costTicket",
+        "costReturnticket"
       ]
      ]
   },
@@ -49,53 +49,19 @@ Page({
     console.log(options.checkType);
     this.setData({ checkType: options['checkType']});
 
-    var retData =
-    {
-      "msg": "success",
-      "code": 200,
-      "data": {
-        "delFlag": null,
-        "createUserId": 1,
-        "createTime": "2017-06-25 21:25:51",
-        "updateUserId": null,
-        "updateTime": null,
-        "id": 1,//
-        "subId": 2,//组长id
-        "memberId": 1,
-        "memberName": "唐玉杰",
-        "costType":0,//0常规花销 1车费花销
-
-        "costTime": "2017-06-24",
-
-        "costBreakfast": 1.1,
-        "costLunch": 2.2,
-        "costDinner": 3.3,
-        "costDrink": 4.4,
-        "costUrbantraffic": 5.5,
-        "costOthers": 8.8,
-
-        "totalcost": 39.6,
-
-        "remark": "有人暗恋腿哥有人暗恋腿哥有人暗恋腿哥有人暗恋腿哥有人暗恋腿哥有人暗恋腿哥有人暗恋腿哥有人暗恋腿哥",
-        "checkStatus": 0,
-
-        "costTicket1": 6.6,
-        "costTicket2": 7.7,
-      }
-    }
-
-    this.setData({data: retData.data});
+    this.requestDetail(options.costId);
   },
 
   bindClickBtn: function (e){
     
-    var content = '确定' + (e.target.id == -1 ? '不通过' : '通过') + '当前报销申请？';
+    var content = '确定' + (e.target.id == 1 ? '通过' : '不通过') + '当前报销申请？';
+    var that = this;
     wx.showModal({
       title: '',
       content: content,
       success: function (res) {
         if (res.confirm) {
-          console.log(e.target.id+'提交');
+          that.doCostAudit(e.target.id);
         }
       }
     })
@@ -148,5 +114,74 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  requestDetail: function (costId) {
+    var token = getApp().globalData.token;
+    var that = this;
+
+    var data = {
+       costId: costId,
+       token: token
+    };
+    wx.request({
+      url: "https://www.landofpromise.cn/lop/app/cost/detail",
+      data: data,
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 200) {
+          that.requestSuccess(res.data.data);//添加成功
+        } else {
+          that.requestFail(res.data.msg);//添加失败
+        }
+      },
+      fail: function (res) {
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//添加失败
+      }
+    })
+  },
+  requestSuccess: function (data) 
+  {
+    this.setData({ data: data });
+  },
+  requestFail: function (msg)
+  {
+    wx.showModal({
+      title: '',
+      content: msg,
+      showCancel: false
+    })
+  },
+
+
+  doCostAudit: function (auditStatus) {
+    var url = "https://www.landofpromise.cn/lop/app/cost/sup/audit";
+    url += "?token=" + getApp().globalData.token;
+
+    var data = { 
+      costId:this.data.data.id,
+      auditStatus: auditStatus
+    };
+    console.log(data);
+    var that = this;
+    wx.request({
+      url: url,
+      data: data,
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 200) {
+          wx.navigateBack({});//请求成功
+        } else {
+          that.requestFail(res.data.msg);//请求失败
+        }
+      },
+      fail: function (res) {
+        //that.requestFail(res.errMsg);//系统自带提示
+        that.requestFail('亲，网络似乎不大好..');//添加失败
+      }
+    })
   }
 })

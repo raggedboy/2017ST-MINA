@@ -26,7 +26,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    //TODO
+    // console.log(getApp().globalData);
+    // //更改密码
+    // if (getApp().globalData.bPwdChange)
+    // {
+    //   getApp().globalData["bPwdChange"]=false;
+      
+    //   function showModalBack(){
+    //     wx.showModal(
+    //       {
+    //         title: '',
+    //         content: '密码已更改，请重新登录',
+    //         showCancel: false,
+    //         success: function (res) { wx.navigateBack({}); }
+    //       });
+    //   }
+    //   //setTimeout真难用
+    //   setTimeout(function () {
+    //     showModalBack();
+    //   }, 100);
+    // }
   },
 
   /**

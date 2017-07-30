@@ -30,8 +30,8 @@
 
 <block wx:if="{{checkType == 1 && data.checkStatus == 0}}">
 <view class="submit_btn_container">
-  <button class="submit_btn" bindtap="bindClickBtn" id="-1">不通过</button>
-  <button class="submit_btn" bindtap="bindClickBtn" id="0">通过</button>
+  <button class="submit_btn" bindtap="bindClickBtn" id="3">不通过</button>
+  <button class="submit_btn" bindtap="bindClickBtn" id="1">通过</button>
 </view>
 </block>
 
