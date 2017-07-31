@@ -1,20 +1,26 @@
 <!--page_home.wxml-->
-<view class="expenseView" bindtap="bindExpenseImg">
+<view class="page">
+<view class="view_container" bindtap="bindExpenseImg">
 
-  <image class="carrotImg" src = '../../../sources/images/home-icon-carrot.png'></image>
+  <image class="image" src = '../../../sources/images/home-icon-carrot.png'></image>
 
-  <text class="carrotTxt">报销</text>
-
-</view>
-
-<view class="changePwdView" bindtap="bindChangePWDBtn">
-
-  <image class="carrotImg" src = '../../../sources/images/home-icon-lock.png'></image>
-
-  <text class="lockTxt">更改密码</text>
+  <text class="txt">报销</text>
 
 </view>
 
+<view class="view_container" bindtap="bindDataImg">
 
-<!--<button class="bottomBtn" bindtap="bindChangePWDBtn" style="display:flex"> 更改密码
- </button>-->
+  <image class="image" src = '../../../sources/images/home-icon-data.png'></image>
+
+  <text class="txt">数据</text>
+
+</view>
+
+<view class="view_container" bindtap="bindChangePWDBtn">
+
+  <image class="image" src = '../../../sources/images/home-icon-lock.png'></image>
+
+  <text class="txt">更改密码</text>
+
+</view>
+</view>

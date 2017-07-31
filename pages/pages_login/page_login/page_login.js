@@ -29,8 +29,8 @@ Page(
     var pwd = this.data.password;
   
 //临时代码
-    // mobile = '15068865038',
-    // pwd = '123123'
+     mobile = '15068865038',
+    pwd = '123123'
 
     //帐号判空
     if (mobile == '') {

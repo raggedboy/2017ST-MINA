@@ -90,6 +90,12 @@ Page({
     })
   },
 
+  bindDataImg: function () {
+    wx.navigateTo({
+      url: '../../pages_expense/page_expenseList/page_expenseList',//数据模块入口
+    })
+  },
+
   bindChangePWDBtn: function () {
     wx.navigateTo({
       url: '../page_changePWD/page_changePWD',
