@@ -106,6 +106,7 @@ Page({
   bindInputChange: function (e) {
     var value = e.detail.value;
 
+    //this.data.input_list[e.target.id]['value'] = value + '';
     this.data.input_list[e.target.id]['value'] = (value + '').match(/\d{0,3}(\.\d?)?/)[0];
     
     this.setData(
@@ -153,16 +154,16 @@ Page({
         { 'name': 'costBreakfast', 'title': '早餐', 'value': '' },
         { 'name': 'costLunch', 'title': '中餐', 'value': '' },
         { 'name': 'costDinner', 'title': '晚餐', 'value': '' },
-        { 'name': 'costUrbantraffic', 'title': '市内交通', 'value': '' },
         { 'name': 'costDrink', 'title': '饮料', 'value': '' },
+        { 'name': 'costUrbantraffic', 'title': '市内交通', 'value': '' },
         { 'name': 'costOthers', 'title': '其它', 'value': '' },
       ];
     }
 
     if (typeIndex == 1) {
       return [
-        { 'name': 'costTicket', 'title': '家/杭州-目标城市车费', 'value': '' },
-        { 'name': 'costReturnticket', 'title': '目标城市-嘉年华城市车费', 'value': '' },
+        { 'name': 'costTicket', 'title': '家/杭州-目标城市', 'value': '' },
+        { 'name': 'costReturnticket', 'title': '目标城市-嘉年华城市', 'value': '' },
       ];
     }
   },

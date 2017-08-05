@@ -27,10 +27,6 @@ Page(
 
     var mobile = this.data.mobile;
     var pwd = this.data.password;
-  
-//临时代码
-     mobile = '15068865038',
-    pwd = '123123'
 
     //帐号判空
     if (mobile == '') {
@@ -40,6 +36,19 @@ Page(
     if (pwd == '') {
       this.showModal('请输入密码'); return;
     }
+
+    if (mobile.length < 11) {
+      this.showModal('用户名为11位手机号'); return;
+    }
+    var pat = /^[0-9a-zA-Z]{6,20}$/;
+    //密码长度判断
+    if (!pat.test(pwd)){
+      this.showModal('密码由6~20位英文字母和数字组成'); return;
+    }
+
+    // //临时代码
+    // mobile = '15068865038',
+    //   pwd = '123123'
 
     //为适配更改密码接口----
     getApp().globalData['mobile'] = mobile;
@@ -144,7 +153,9 @@ Page(
 
   //密码显隐
   bindShowPWDIcon: function (e) {
-    this.setData({ pwdShow:!this.data.pwdShow})
+    var pwd = this.data.password;//iOS直接设置pwdShow密码不响应，需重新设置password触发
+    this.setData({ pwdShow:!this.data.pwdShow,
+      password: pwd})
   },
 
   /*

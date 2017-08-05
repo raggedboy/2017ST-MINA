@@ -22,7 +22,7 @@
 <!--常规花销输入-->  
 <view wx:for="{{input_list}}" class="input_group">
     <text class="input_title">{{item.title}}</text>
-    <input id="{{index}}" class="input_data" name="{{item.name}}" bindinput="bindInputChange" value="{{item.value}}" type='digit'
+    <input id="{{index}}" class="input_data" name="{{item.name}}" bindinput="bindInputChange" value="{{item.value}}" type='digit' maxlength="5" 
     placeholder-class="input_placeholder" placeholder="0.0" 
     ></input>
     <text class="input_unit">￥</text>
@@ -46,6 +46,8 @@
     
 
 <!--提交按钮-->  
+<view class="submit_btn_bg">
   <button formType="submit" class="submit_btn">提交</button>
+</view>
 
 </form>

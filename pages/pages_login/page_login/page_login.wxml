@@ -1,6 +1,10 @@
 <!--page_login.wxml-->
+
 <view class = "loginTitleView">
-<text class = "loginTitle">ST系统</text>
+  <image src="../../../sources/images/app-logo.png" 
+  mode="aspectFit" 
+  class="loginTitle">
+  </image>
 </view>
 
 <view class = "textGroup">
@@ -15,8 +19,9 @@
     <input id="mobileID"
     value="{{mobile}}" 
     bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
-    class="loginText" 
-    placeholder="请输入用户名" placeholder-class='loginPlaceHolder'> 
+    class="loginText" maxlength="11" type="number"
+    placeholder="请输入用户名" 
+    placeholder-class='loginPlaceHolder'>
     </input>
 
     <!--<image id="mobileID"
@@ -43,7 +48,7 @@
   <input id="pwdID"
   value="{{password}}" password="{{pwdShow}}"
   bindinput="bindInput" bindfocus="bindFocus" bindblur="bindBlur"
-  class="loginText" 
+  class="loginText" maxlength="20" 
   placeholder-class='loginPlaceHolder' placeholder="请输入密码"
   >
   </input>

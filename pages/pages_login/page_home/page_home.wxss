@@ -8,12 +8,15 @@
 }
 
 .image{
-  height: 180rpx;
-  width: 180rpx;
+  height: 120rpx;
+  width: 120rpx;
+  /*height: 180rpx;
+  width: 180rpx;*/
 }
 
 .txt{
-  font-size: 80rpx;
+  font-size: 60rpx;
+  /*font-size: 80rpx;*/
 }
 
 .page{

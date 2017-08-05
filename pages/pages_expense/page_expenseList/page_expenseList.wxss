@@ -71,7 +71,7 @@ page{
 }
 
 .list_container{
-  margin-bottom: 80rpx;
+  padding-bottom: 100rpx;
 }
 
 .tab_container{

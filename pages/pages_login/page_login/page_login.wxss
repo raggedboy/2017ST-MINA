@@ -6,12 +6,8 @@
 
 .loginTitle{
   vertical-align: middle;
-  color:#bb4a3a;
   margin:auto;
-  font-size: 80rpx;
-  text-indent: 50rpx;
-  letter-spacing: 50rpx;
-  font-weight: bold;
+  height:235rpx;
 }
 
 .textGroup{

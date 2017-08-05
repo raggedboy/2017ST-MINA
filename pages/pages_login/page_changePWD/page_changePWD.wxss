@@ -50,8 +50,8 @@
   line-height: 70rpx;
   color: white;
   border-radius: 5rpx;
-  text-indent: 80rpx;
-  letter-spacing: 80rpx;
+  /*text-indent: 40rpx;
+  letter-spacing: 80rpx;*/
 }
 
 /*.btnText{

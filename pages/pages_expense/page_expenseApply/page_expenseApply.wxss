@@ -43,7 +43,7 @@
 .input_group{
   height:87rpx;
   display:flex;
-  /*justify-content: space-between;*/
+  justify-content: space-between;
   border-bottom:2rpx solid #a1a1a1;
   margin:0rpx 20rpx;
 }
@@ -52,6 +52,7 @@
   font-size: 35rpx;
   align-self:center;
   margin-left: 35rpx;
+  flex-shrink:0;
 }
 
 .input_data{
@@ -80,6 +81,11 @@
 }
 
 /*==============================================================*/
+
+.submit_btn_bg{
+    height: 120rpx;
+    width:100%;
+}
 
 .submit_btn{
     margin:40rpx 30rpx;

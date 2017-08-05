@@ -37,7 +37,7 @@
 </text>
 
   <button class="confirmBtn" form-type="submit">
-    确定
+    确       定
     </button>
 
 </form>
