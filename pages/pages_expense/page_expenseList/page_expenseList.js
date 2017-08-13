@@ -46,7 +46,6 @@ if (arrayDate.indexOf(oriDate) > 0){
 Page({
   data: {
     userLevel:1,
-    submitBtnAvailable:true,
     curTab: 0,//当前选中按钮,将会以checkType:0，非审核 1, 审核 字段传入详情页
     filter: oriFilter,
     arrayFilter: arrayFilter,
@@ -55,7 +54,8 @@ Page({
     submit_btn_list: ['申请报销', '确认数据，提交财务'],
     submit_title: '申请报销',
     my_record_list: [],
-    group_record_list: []
+    group_record_list: [],
+    btn_disable: false
   } ,
   bindSubmitBtn: function (e) {
     if(this.data.curTab == 0){
@@ -116,6 +116,16 @@ Page({
       this.setData({
         "list": this.data.group_record_list
       });
+
+      //提交按钮无效设置
+      var btn_disable = false;
+      for (var record of this.data.group_record_list) {
+        if (record.submitStatus == 1) {
+          btn_disable = true;
+          break;
+        }
+      }
+      this.setData({ "btn_disable": btn_disable});
     }
   },
   onLoad: function (options) {

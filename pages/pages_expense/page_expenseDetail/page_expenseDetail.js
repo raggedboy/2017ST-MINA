@@ -15,7 +15,7 @@ Page({
        "costLunch": "中餐",
        "costDinner": "晚餐",
        "costDrink": "饮料",
-       "costUrbantraffic": "室内交通",
+       "costUrbantraffic": "市内交通",
        "costOthers": "其它",
 
        "costTicket": "家/杭州-目标城市车费",

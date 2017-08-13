@@ -41,7 +41,7 @@
   </view>
   <view class="input_area_group">
     <textarea name="remark" placeholder="不超过20个字符" maxlength='20'
-     auto-height='true' class="input_area"></textarea>
+     auto-height='true' class="input_area" value="{{remark}}"></textarea>
   </view>
     
 

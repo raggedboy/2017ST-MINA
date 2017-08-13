@@ -15,6 +15,21 @@ Date.prototype.Format = function (fmt) { //author: meizz
   return fmt;
 }
 
+var aray = ['2017-09-01',
+            '2017-09-02',
+            '2017-09-03',
+            '2017-09-04'];
+
+var today = new Date().Format('yyyy-MM-dd');
+var date = today;
+if (today.replace(/-/g, "") < aray[0].replace(/-/g, "")){
+  date = aray[0];
+} 
+else if (today.replace(/-/g, "") > aray[0].replace(/-/g, "")){
+  date = aray[aray.length - 1];
+}
+
+date.replace(/-/g, "");
 
 // page_expenseApply.js
 Page({
@@ -25,18 +40,19 @@ Page({
   data: {
     typeArray:["日常费用", "车票费用"],
     typeIndex:0,
-    date: new Date().Format('yyyy-MM-dd'),
-    startDate: '2017-09-01',
-    endDate: '2017-09-4',
+    date: date,
+    startDate: aray[0],
+    endDate: aray[aray.length - 1],
     input_list:[],
-    totalCost: '0.0'
+    totalCost: '0.0',
+    remark:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ input_list: this.generateInputList(this.data.typeIndex) });
+    this.refreshList();
   },
 
   /**
@@ -100,7 +116,20 @@ Page({
       {typeIndex:e.detail.value}
     );
 
-    this.setData({ input_list: this.generateInputList(this.data.typeIndex) });
+    this.refreshList();
+  },
+
+  refreshList: function (e) {
+    this.setData(
+      { input_list: this.generateInputList(this.data.typeIndex),
+      remark:''});
+
+    this.setData(
+      {
+        totalCost: this.calculateTotalCost(),
+        input_list: this.data.input_list
+      }
+    );
   },
 // ===== 用户输入 =====
   bindInputChange: function (e) {
@@ -180,7 +209,7 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res.data);
-        if (res.data.code == 200) {
+        if (res.data.code >= 200 || res.data.code <300) {
           that.requestSuccess(res.data.msg);//请求成功
         } else {
           that.requestFail(res.data.msg);//请求失败

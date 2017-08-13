@@ -1,14 +1,14 @@
 
 .titleText{
   margin:0 20rpx 0;
-  flex-basis: 160rpx;
+  flex-basis: 180rpx;
   color:#bb4a3a;
-  font-size: 32rpx;
+  font-size: 40rpx;
 }
 .inputText{
   flex: auto;
   color:#bb4a3a;
-  font-size: 32rpx;
+  font-size: 35rpx;
 }
 .inputPlaceHolder{
   color: #898989;
@@ -17,7 +17,7 @@
 
 .textGroup{
   display: flex;
-  height: 75rpx;
+  height: 100rpx;
   margin:13rpx 44rpx 0rpx;
   border-bottom:#bb4a3a solid 1rpx;
   align-items: center;
@@ -25,19 +25,19 @@
 
 .clearIcon {
   margin-left:20rpx;
-  width: 24rpx;
-  height: 24rpx;
+  width: 36rpx;
+  height: 36rpx;
 }
 .eyeIcon {
   width: 32rpx;
-  height: 24rpx;
-  margin:0 19rpx 0;
+  height: 36rpx;
+  margin:0 24rpx 0;
 }
 
 .tipText{
   color: #6c6c6c;
   margin:0rpx 60rpx 0rpx;
-  font-size: 24rpx;
+  font-size: 30rpx;
   height: 70rpx;
 }
 

@@ -56,12 +56,12 @@
 
 <!--提交按钮-->
 <view class="submit_btn_container">
-  <button class="submit_btn" bindtap="bindSubmitBtn" disabled="{{!submitBtnAvailable && curTab == 1}}">{{submit_title}}
+  <button class="submit_btn" bindtap="bindSubmitBtn" disabled="{{btn_disable && curTab == 1}}">{{submit_title}}
   <!--style="{{(submitBtnAvailable || curTab == 0)?'background: #bb4a3a':'background:gray'}}"-->
   </button>
 </view>
 
 <!--问号按钮-->
 <button class="question_btn"
-wx:if="{{curTab == 1 && submitBtnAvailable}}" bindtap="bindQuestionBtn">?
+wx:if="{{curTab == 1}}" bindtap="bindQuestionBtn">?
 </button>
