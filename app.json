@@ -6,7 +6,9 @@
     "pages/pages_login/page_changePWD/page_changePWD",
     "pages/pages_expense/page_expenseDetail/page_expenseDetail",
     "pages/pages_expense/page_expenseApply/page_expenseApply",
-    "pages/pages_expense/page_expenseList/page_expenseList"
+    "pages/pages_expense/page_expenseList/page_expenseList",
+    "pages/pages_data/page_dataAdd/page_dataAdd",
+    "pages/pages_data/page_dataView/page_dataView"
   ],
   "window": {
     "backgroundTextStyle": "light",

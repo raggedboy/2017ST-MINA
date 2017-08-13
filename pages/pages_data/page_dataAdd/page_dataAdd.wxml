@@ -1,0 +1,34 @@
+<!--logs.wxml-->
+<view class="data_box">
+
+  <view class="select_date">
+    {{dates}}
+  </view>
+
+  <view class="zy_select_date">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[index]}}
+      </view>
+    </picker>
+  </view>
+  <view class="zy_select_date st_select_date">
+    <input placeholder="遇到人数" placeholder-class="color_p" maxlength="6" type="number" value="{{meetNum}}" bindblur="saveMeetNum" />
+  </view>
+  <view class="zy_select_date st_select_date">
+    <input placeholder="完整分享" placeholder-class="color_p" maxlength="6" type="number" value="{{shareNum}}" bindblur="saveShareNum" />
+  </view>
+  <view class="zy_select_date st_select_date">
+    <input placeholder="接受人数" placeholder-class="color_p" maxlength="6" type="number" value="{{acceptNum}}" bindblur="saveAcceptNum" />
+  </view>
+  <view class="zy_select_date st_select_date">
+    <input placeholder="找到人数" placeholder-class="color_p" maxlength="6" type="number" value="{{findNum}}" bindblur="saveFindNum" />
+  </view>
+
+  <button class="submit {{submit_error}}" bindtap="submit" disabled="{{disabled}}">提交</button>
+  <button class="check" bindtap="bindViewadded">查看已添加</button>
+</view>
+
+<!--弹出框-->
+<modal hidden="{{hiddenModal}}" title="{{modelTitle}}" confirm-text="确定" bindconfirm="btnconfirm" no-cancel="true">
+</modal>
