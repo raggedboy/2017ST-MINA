@@ -1,0 +1,45 @@
+.data_box {
+  width: 92%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 5% 0 4%;
+  font-size: 14px;
+}
+
+.select_date {
+  border: 2px solid #c6c6c6;
+  width: 42%;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-bottom: 3%;
+}
+
+.zy_select_date {
+  width: 92%;
+  border: 2px solid #c6c6c6;
+  border-radius: 5px;
+  padding: 3.5%;
+  margin-bottom: 3%;
+}
+
+.st_select_date {
+  padding: 3.5%;
+}
+
+.color_p {
+  color: #ccc;
+}
+
+.submit, .check {
+  width: 99%;
+  /*border: 2px solid #c6c6c6;*/
+  border-radius: 5px;
+  margin-bottom: 3%;
+  color: #fff;
+  font-size: 14px;
+  padding: 1.5% 0;
+  background: #bb4a3a;
+  box-sizing: inherit;
+}
+
+.submit_error{color: #bb4a3a;background: #fff;border: 2px solid #c6c6c6;}

@@ -1,0 +1,34 @@
+<!--pages/added/added.wxml-->
+<view class="section">
+  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="select_date">
+      {{date}}
+    </view>
+  </picker>
+</view>
+<view class="table {{tipsshow}}">
+  <view class="tr">
+    <view class="th">名字</view>
+    <view class="th">YD</view>
+    <view class="th ">WZ</view>
+    <view class="th">JS</view>
+    <view class="th ">ZD</view>
+  </view>
+  <view class="tr bg-g" wx:for="{{listData}}">
+    <view class="td">{{item.memberName}}</view>
+    <view class="td">{{item.dataMeet}}</view>
+    <view class="td">{{item.dataShare}}</view>
+    <view class="td">{{item.dataAccept}}</view>
+    <view class="td">{{item.dataFind}}</view>
+  </view>
+  <view class="tr bg-z">
+    <view class="td">{{place}}</view>
+    <view class="td">{{dataMeetTotal}}</view>
+    <view class="td">{{dataShareTotal}}</view>
+    <view class="td">{{dataAcceptTotal}}</view>
+    <view class="td">{{dataFindTotal}}</view>
+  </view>
+</view>
+<!--弹出框-->
+<modal hidden="{{hiddenModal}}" title="{{modelTitle}}" confirm-text="确定" bindconfirm="btnconfirm" no-cancel="true">
+</modal>
