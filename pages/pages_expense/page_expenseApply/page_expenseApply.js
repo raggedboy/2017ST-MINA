@@ -1,26 +1,8 @@
-//全局函数，不知道放哪里
-Date.prototype.Format = function (fmt) { //author: meizz 
-  var o = {
-    "M+": this.getMonth() + 1, //月份 
-    "d+": this.getDate(), //日 
-    "h+": this.getHours(), //小时 
-    "m+": this.getMinutes(), //分 
-    "s+": this.getSeconds(), //秒 
-    "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-    "S": this.getMilliseconds() //毫秒 
-  };
-  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-  for (var k in o)
-    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-  return fmt;
-}
+var util = require('../../../utils/util.js');
+var aray = getApp().globalData.dateAray;
 
-var aray = ['2017-09-01',
-            '2017-09-02',
-            '2017-09-03',
-            '2017-09-04'];
+var today = util.getDate(new Date());
 
-var today = new Date().Format('yyyy-MM-dd');
 var date = today;
 if (today.replace(/-/g, "") < aray[0].replace(/-/g, "")){
   date = aray[0];
@@ -28,8 +10,6 @@ if (today.replace(/-/g, "") < aray[0].replace(/-/g, "")){
 else if (today.replace(/-/g, "") > aray[0].replace(/-/g, "")){
   date = aray[aray.length - 1];
 }
-
-date.replace(/-/g, "");
 
 // page_expenseApply.js
 Page({
@@ -53,6 +33,9 @@ Page({
    */
   onLoad: function (options) {
     this.refreshList();
+
+    console.log('=======================');
+    console.log(today);
   },
 
   /**

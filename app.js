@@ -8,6 +8,10 @@ App({
     token:null,
     roltType:null,
     mobile: null,
-    bPwdChange:false
+    bPwdChange:false,
+    dateAray:['2017-09-01',
+              '2017-09-02',
+              '2017-09-03',
+              '2017-09-04']
   }
 })
