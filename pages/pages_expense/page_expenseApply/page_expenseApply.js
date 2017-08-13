@@ -33,9 +33,6 @@ Page({
    */
   onLoad: function (options) {
     this.refreshList();
-
-    console.log('=======================');
-    console.log(today);
   },
 
   /**

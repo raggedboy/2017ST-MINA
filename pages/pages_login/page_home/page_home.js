@@ -98,7 +98,7 @@ Page({
 
   bindDataImg: function () {
     wx.navigateTo({
-      url: '../../pages_expense/page_expenseList/page_expenseList',//数据模块入口
+      url: '../../pages_data/page_dataAdd/page_dataAdd',//数据模块入口
     })
   },
 
