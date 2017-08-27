@@ -45,7 +45,7 @@ if (arrayDate.indexOf(oriDate) > 0){
 
 Page({
   data: {
-    userLevel:1,
+    roltType: 1,
     curTab: 0,//当前选中按钮,将会以checkType:0，非审核 1, 审核 字段传入详情页
     filter: oriFilter,
     arrayFilter: arrayFilter,
@@ -71,8 +71,9 @@ Page({
       title: '',
       content: '确定向财务提交当前 ' + this.data.group_record_list.length + ' 条有效申请?',
       success: function(e){
-
-        that.doCostListSubmit();
+        if (e.confirm) {
+          that.doCostListSubmit();
+        } 
       }
     })
   },
@@ -128,11 +129,9 @@ Page({
       this.setData({ "btn_disable": btn_disable});
     }
   },
-  onLoad: function (options) {
-    var roltType = getApp().globalData.roltType;
-    this.setData({
-      "roltType": roltType
-    });
+  onLoad: function (options){
+    this.setData({ roltType: app.globalData.roltType})
+    
   },
   onShow: function (){
     this.requestList();
@@ -219,10 +218,7 @@ Page({
     wx.showModal({
       title: '',
       content: msg,
-      showCancel:false,
-      success: function (e) {
-        //
-      }
+      showCancel:false
     })
   },
 })

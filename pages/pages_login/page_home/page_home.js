@@ -5,14 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    roltType:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({ roltType: app.globalData.roltType}); 
   },
 
   /**
@@ -45,7 +45,7 @@ Page({
             title: '',
             content: '密码更改成功，请重新登录',
             showCancel: false,
-            success: function (res) { that.navigationBack(); }
+            complete: function (res) { that.navigationBack(); }
           });
       }
       //setTimeout真难用

@@ -134,7 +134,7 @@ Page({
     {
       var name = input_item.name;
       var value = dic_submit[name];
-      if (!value || value.length == 0){
+      if (!value || value.length == 0 || value == "."){
         dic_submit[name] = '0.0';
       }
     }
@@ -151,7 +151,11 @@ Page({
     var totalCost = 0;
     for (var item of this.data.input_list) {
       if (item.value) {
-        totalCost += parseFloat(item.value);
+        if(item.value == "."){
+          totalCost += 0.0;
+        }else{
+          totalCost += parseFloat(item.value);
+        }
       }
     }
     return totalCost.toFixed(1);
@@ -212,7 +216,7 @@ Page({
       title: '',
       content: msg,
       showCancel: false,
-      success: function (res) {
+      complete: function (res) {
         wx.navigateBack({});
       }
     })

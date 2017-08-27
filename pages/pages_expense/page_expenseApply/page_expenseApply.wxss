@@ -60,6 +60,8 @@
   align-self:center;
   text-align: right;
   flex: auto;
+  flex-basis: 50rpx;
+  flex-shrink:0;
 }
 
 .input_unit{

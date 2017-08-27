@@ -1,5 +1,5 @@
 <!--切换按钮-->
-<view class="tab_container" wx:if="{{userLevel==1}}">
+<view class="tab_container" wx:if="{{roltType==2}}">
   <block wx:for="{{tab_btn_list}}">
     <button id='{{index}}' style="{{curTab == index?'border-color:#bb4a3a; color: white; background:#bb4a3a':'border-color:#707070; color:#707070'}}" bindtap="bindTab" class="tab_btn" plain="true">{{tab_btn_list[index]}}</button>
   </block>

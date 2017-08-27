@@ -57,7 +57,7 @@ Page(
       mobile: mobile,
       password: pwd
     }
-    console.log(requestData);
+    // console.log(requestData);
 
     var that = this;
     wx.request({
@@ -86,11 +86,22 @@ Page(
     //判空保护
     if (!data.token || data.token.length == 0)return;
 
-    //token存储
+    //全局token存储
     getApp().globalData['token'] = data.token;
     getApp().globalData['roltType'] = data.roltType;
-    //登录成功：保存帐号密码至本地，下次打开，直接填上
-    //TODO
+
+    // //登录成功：保存帐号密码至本地，下次打开，直接填上
+    // console.log({
+    //   mobile: this.data.mobile,
+    //   password: this.data.password
+    // });
+
+    wx.setStorage({
+      key: "key",
+      data: {mobile: this.data.mobile,
+          password: this.data.password}
+    })
+
     //页面跳转
     wx.redirectTo({
       url: '../page_home/page_home',
@@ -164,6 +175,17 @@ Page(
   onLoad: function (options) 
   {
   //页面初次渲染完成
+    var that = this;
+    wx.getStorage({
+      key: 'key',
+      success: function (res) {
+        console.log(res.data);
+        if (res.data) {
+           that.setData(res.data);
+           }
+      }
+    })
+    
   },
   onReady: function () {
   },
