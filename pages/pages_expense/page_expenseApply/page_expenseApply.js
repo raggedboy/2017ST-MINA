@@ -175,8 +175,8 @@ Page({
 
     if (typeIndex == 1) {
       return [
-        { 'name': 'costTicket', 'title': '家/杭州-目标城市', 'value': '' },
-        { 'name': 'costReturnticket', 'title': '目标城市-嘉年华城市', 'value': '' },
+        { 'name': 'costTicket', 'title': '家-目标城市', 'value': '' },
+        { 'name': 'costReturnticket', 'title': '目标城市-嘉年华', 'value': '' },
       ];
     }
   },

@@ -20,7 +20,16 @@
 </view>
 
 <!--常规花销输入-->  
-<view wx:for="{{input_list}}" class="input_group">
+<view wx:if="{{typeIndex==0}}" wx:for="{{input_list}}" class="input_group">
+    <text class="input_title">{{item.title}}</text>
+    <input id="{{index}}" class="input_data" name="{{item.name}}" bindinput="bindInputChange" value="{{item.value}}" type='digit' maxlength="5" 
+    placeholder-class="input_placeholder" placeholder="0.0" 
+    ></input>
+    <text class="input_unit">￥</text>
+</view>
+
+<!--车票费用输入-->  
+<view wx:if="{{typeIndex==1}}" wx:for="{{input_list}}" class="input_group">
     <text class="input_title">{{item.title}}</text>
     <input id="{{index}}" class="input_data" name="{{item.name}}" bindinput="bindInputChange" value="{{item.value}}" type='digit' maxlength="5" 
     placeholder-class="input_placeholder" placeholder="0.0" 
