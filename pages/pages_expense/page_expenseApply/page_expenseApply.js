@@ -7,9 +7,9 @@ var date = today;
 if (today.replace(/-/g, "") < aray[0].replace(/-/g, "")){
   date = aray[0];
 } 
-else if (today.replace(/-/g, "") > aray[0].replace(/-/g, "")){
-  date = aray[aray.length - 1];
-}
+// else if (today.replace(/-/g, "") > aray[0].replace(/-/g, "")){
+//   date = aray[aray.length - 1];
+// }
 
 // page_expenseApply.js
 Page({
