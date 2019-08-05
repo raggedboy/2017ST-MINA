@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.3",
-	"appid": "wx797300a9edf3777a",
+	"appid": "wx539d14c0cb6f9b05",
 	"projectname": "2019ST-MINA",
 	"isGameTourist": false,
 	"simulatorType": "wechat",

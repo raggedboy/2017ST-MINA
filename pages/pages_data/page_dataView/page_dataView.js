@@ -68,7 +68,7 @@ Page({
 
   //查询数据列表
   refreshData: function (date) {
-    var url = "https://www.landofpromise.co:8080/lop/app/data/sup/list";
+    var url = "https://www.landofpromise.co:8088/lop/app/data/sup/list";
     url += "?thisDate=" + date + "&token=" + getApp().globalData.token;
     var that = this;
     wx.request({

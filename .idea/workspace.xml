@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f8365c1-768f-4ea6-ba92-ef523e60b5b9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/pages_data/page_dataAdd/page_dataAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pages_data/page_dataAdd/page_dataAdd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/pages_data/page_dataView/page_dataView.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pages_data/page_dataView/page_dataView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/pages_expense/page_expenseApply/page_expenseApply.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pages_expense/page_expenseApply/page_expenseApply.js" afterDir="false" />
@@ -27,7 +27,7 @@
       <file leaf-file-name="page_dataAdd.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/pages_data/page_dataAdd/page_dataAdd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="182">
               <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
@@ -39,10 +39,12 @@
     <findStrings>
       <find>https://www.landofpromise.cn</find>
       <find>http://www.landofpromise.co:8080</find>
+      <find>https://www.landofpromise.co:8080</find>
     </findStrings>
     <replaceStrings>
       <replace>http://www.landofpromise.co:8080</replace>
       <replace>https://www.landofpromise.co:8080</replace>
+      <replace>https://www.landofpromise.co:8088</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -64,7 +66,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-136" />
     <option name="y" value="-877" />
     <option name="width" value="1600" />
@@ -145,14 +147,15 @@
       <updated>1565004922721</updated>
       <workItem from="1565004925821" duration="246000" />
       <workItem from="1568117640934" duration="66000" />
+      <workItem from="1565016669786" duration="394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312000" />
+    <option name="totallyTimeSpent" value="706000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-136" y="-877" width="1600" height="877" extended-state="0" />
+    <frame x="-136" y="-877" width="1600" height="801" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24952501" />
@@ -183,6 +186,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pages/pages_data/page_dataAdd/page_dataAdd.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/pages_data/page_dataAdd/page_dataAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
         </state>
@@ -190,7 +200,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/pages_data/page_dataAdd/page_dataAdd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="182">
           <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>

@@ -175,15 +175,15 @@ Page({
 
     if (typeIndex == 1) {
       return [
-        { 'name': 'costTicket', 'title': '家-目标城市', 'value': '' },
-        { 'name': 'costReturnticket', 'title': '目标城市-嘉年华', 'value': '' },
+        { 'name': 'costTicket', 'title': '家-杭州', 'value': '' },
+        { 'name': 'costReturnticket', 'title': '杭州-家', 'value': '' },
       ];
     }
   },
 
   doCostAdd:function(data)
   {
-    var url = "https://www.landofpromise.co:8080/lop/app/cost/add";
+    var url = "https://www.landofpromise.co:8088/lop/app/cost/add";
     url += "?token=" + getApp().globalData.token;
     console.log(data);
     var that = this;

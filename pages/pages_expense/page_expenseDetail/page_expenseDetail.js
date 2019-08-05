@@ -125,7 +125,7 @@ Page({
        token: token
     };
     wx.request({
-      url: "https://www.landofpromise.co:8080/lop/app/cost/detail",
+      url: "https://www.landofpromise.co:8088/lop/app/cost/detail",
       data: data,
       method: 'GET',
       success: function (res) {
@@ -157,7 +157,7 @@ Page({
 
 
   doCostAudit: function (auditStatus) {
-    var url = "https://www.landofpromise.co:8080/lop/app/cost/sup/audit";
+    var url = "https://www.landofpromise.co:8088/lop/app/cost/sup/audit";
     url += "?token=" + getApp().globalData.token;
 
     var data = { 

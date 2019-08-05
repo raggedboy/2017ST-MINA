@@ -15,7 +15,7 @@ Page({
      */
   onLoad: function () {
     //获取组员列表
-    var url = "https://www.landofpromise.co:8080/lop/app/data/member/list";
+    var url = "https://www.landofpromise.co:8088/lop/app/data/member/list";
     url += "?token=" + getApp().globalData.token;
     var that = this;
     wx.request({
@@ -146,7 +146,7 @@ Page({
       "dataFind": findNum
     }
     //submitData = JSON.stringify(submitData);
-    var url = "https://www.landofpromise.co:8080/lop/app/data/add";
+    var url = "https://www.landofpromise.co:8088/lop/app/data/add";
     url += "?token=" + getApp().globalData.token;
     var that = this;
     wx.request({

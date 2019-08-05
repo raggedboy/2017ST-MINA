@@ -61,7 +61,7 @@ Page(
 
     var that = this;
     wx.request({
-      url: 'https://www.landofpromise.co:8080/lop/app/member/login',
+      url: 'https://www.landofpromise.co:8088/lop/app/member/login',
       data: requestData,
       method:'POST',
       success:function(res)

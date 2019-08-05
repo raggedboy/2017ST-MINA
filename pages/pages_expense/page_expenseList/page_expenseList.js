@@ -146,11 +146,11 @@ Page({
     var that = this;
 
     var data = { token: token };
-    var url = 'https://www.landofpromise.co:8080/lop/app/cost/list';
+    var url = 'https://www.landofpromise.co:8088/lop/app/cost/list';
     
     if (curTab == 1){
       data["thisDate"]=date;
-      url = 'https://www.landofpromise.co:8080/lop/app/cost/someday/list';
+      url = 'https://www.landofpromise.co:8088/lop/app/cost/someday/list';
     }
     console.log(data);
     wx.request({
@@ -186,7 +186,7 @@ Page({
 
     console.log(data);
     wx.request({
-      url: 'https://www.landofpromise.co:8080/lop/app/cost/sup/submit',
+      url: 'https://www.landofpromise.co:8088/lop/app/cost/sup/submit',
       data: data,
       method: 'GET',
       success: function (res) {
