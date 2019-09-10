@@ -104,7 +104,7 @@ Page({
     var that = this;
     //发送请求
     wx.request({
-      url: 'https://www.landofpromise.cn/lop/app/member/change/password',
+      url: 'https://www.landofpromise.co:8080/lop/app/member/change/password',
       data: formData,
       method: 'POST',
       success: function (res) {

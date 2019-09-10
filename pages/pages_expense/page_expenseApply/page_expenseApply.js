@@ -7,9 +7,9 @@ var date = today;
 if (today.replace(/-/g, "") < aray[0].replace(/-/g, "")){
   date = aray[0];
 } 
-// else if (today.replace(/-/g, "") > aray[0].replace(/-/g, "")){
-//   date = aray[aray.length - 1];
-// }
+else if (today.replace(/-/g, "") > aray[aray.length-1].replace(/-/g, "")){
+  date = aray[aray.length - 1];
+}
 
 // page_expenseApply.js
 Page({
@@ -140,7 +140,7 @@ Page({
     }
 
     if (this.data.typeIndex == 1){
-      dic_submit['costTime']='2018-09-05';
+      dic_submit['costTime']='2019-09-05';
     }
     console.log('最终提交数据：', dic_submit);
     this.doCostAdd(dic_submit);
@@ -183,7 +183,7 @@ Page({
 
   doCostAdd:function(data)
   {
-    var url = "https://www.landofpromise.cn/lop/app/cost/add";
+    var url = "https://www.landofpromise.co:8080/lop/app/cost/add";
     url += "?token=" + getApp().globalData.token;
     console.log(data);
     var that = this;

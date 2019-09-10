@@ -21,19 +21,19 @@ Date.prototype.Format = function (fmt) { //author: meizz
 var oriDate = new Date().Format('yyyy-MM-dd');
 // 实际日期
 var arrayDate = [
-  '2018-08-30',
-  '2018-08-31',
-  '2018-09-01',
-  '2018-09-02',
-  '2018-09-05'
+  '2019-08-29',
+  '2019-08-30',
+  '2019-08-31',
+  '2019-09-01',
+  '2019-09-05'
 ];
 
 // 筛选列表
 var arrayFilter = [
-  '2018-08-30',
-  '2018-08-31',
-  '2018-09-01',
-  '2018-09-02',
+  '2019-08-29',
+  '2019-08-30',
+  '2019-08-31',
+  '2019-09-01',
   '车票费用'
 ];
 // 初始筛选字段
@@ -146,11 +146,11 @@ Page({
     var that = this;
 
     var data = { token: token };
-    var url = 'https://www.landofpromise.cn/lop/app/cost/list';
+    var url = 'https://www.landofpromise.co:8080/lop/app/cost/list';
     
     if (curTab == 1){
       data["thisDate"]=date;
-      url = 'https://www.landofpromise.cn/lop/app/cost/someday/list';
+      url = 'https://www.landofpromise.co:8080/lop/app/cost/someday/list';
     }
     console.log(data);
     wx.request({
@@ -186,7 +186,7 @@ Page({
 
     console.log(data);
     wx.request({
-      url: 'https://www.landofpromise.cn/lop/app/cost/sup/submit',
+      url: 'https://www.landofpromise.co:8080/lop/app/cost/sup/submit',
       data: data,
       method: 'GET',
       success: function (res) {
