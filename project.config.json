@@ -9,12 +9,14 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"checkInvalidKey": true
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"useCompilerModule": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.3",
 	"appid": "wx539d14c0cb6f9b05",
-	"projectname": "2019ST-MINA",
+	"projectname": "ST-MINA",
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

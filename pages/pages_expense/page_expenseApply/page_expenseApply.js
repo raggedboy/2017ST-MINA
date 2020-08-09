@@ -140,7 +140,7 @@ Page({
     }
 
     if (this.data.typeIndex == 1){
-      dic_submit['costTime']='2019-09-05';
+      dic_submit['costTime']='2020-09-06';
     }
     console.log('最终提交数据：', dic_submit);
     this.doCostAdd(dic_submit);
@@ -175,8 +175,7 @@ Page({
 
     if (typeIndex == 1) {
       return [
-        { 'name': 'costTicket', 'title': '家-杭州', 'value': '' },
-        { 'name': 'costReturnticket', 'title': '杭州-家', 'value': '' },
+        { 'name': 'costTicket', 'title': '家-禾场', 'value': '' }
       ];
     }
   },
