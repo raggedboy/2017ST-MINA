@@ -140,7 +140,7 @@ Page({
     }
 
     if (this.data.typeIndex == 1){
-      dic_submit['costTime']='2020-09-06';
+      dic_submit['costTime']='2021-08-29';
     }
     console.log('最终提交数据：', dic_submit);
     this.doCostAdd(dic_submit);
