@@ -140,7 +140,7 @@ Page({
     }
 
     if (this.data.typeIndex == 1){
-      dic_submit['costTime']='2022-08-28';
+      dic_submit['costTime']='2023-09-03';
     }
     console.log('最终提交数据：', dic_submit);
     this.doCostAdd(dic_submit);
